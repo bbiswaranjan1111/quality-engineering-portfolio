@@ -5,7 +5,7 @@
 
 > Building reliable software through thoughtful test strategy, maintainable automation, and a shift-left quality mindset.
 
-🔗 [GitHub](https://github.com/bbiswaranjan111) · 💼 [LinkedIn](https://www.linkdin.com/in/biswaranjan-barik-85b266448) · 📧 [bbiswaranjan111@gmail.com]
+🔗 [GitHub](https://github.com/bbiswaranjan1111) · 💼 [LinkedIn](https://www.linkdin.com/in/biswaranjan-barik-85b266448) · 📧 [bbiswaranjan111@gmail.com]
 
 ---
 
@@ -69,7 +69,7 @@ Projects will be added here as they are developed and documented.
 
 ![connect](https://img.shields.io/badge/-Connect%20With%20Me-dc3545?style=for-the-badge)
 
-- **GitHub:** [github.com/bbiswaranjan111](https://github.com/bbiswaranjan111)
+- **GitHub:** [github.com/bbiswaranjan1111](https://github.com/bbiswaranjan1111)
 - **LinkedIn:** [https://www.linkdin.com/in/biswaranjan-barik-85b266448]
 
 ---
