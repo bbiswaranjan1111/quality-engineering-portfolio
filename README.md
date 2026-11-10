@@ -70,7 +70,7 @@ Projects will be added here as they are developed and documented.
 ![connect](https://img.shields.io/badge/-Connect%20With%20Me-dc3545?style=for-the-badge)
 
 - **GitHub:** [github.com/bbiswaranjan1111](https://github.com/bbiswaranjan1111)
-- **LinkedIn:** [https://www.linkdin.com/in/biswaranjan-barik-85b266448]
+- **LinkedIn:** [https://www.linkdin.com/in/biswaranjan-barik-21555744a]
 
 ---
 
