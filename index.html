@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Full Stack Software Testing Engineer portfolio — Manual Testing, Selenium with Java, and Playwright with TypeScript/JavaScript." />
+  <meta name="theme-color" content="#07152d" />
+  <title>Software Testing Portfolio | Full Stack Test Engineering</title>
+  <style>
+    :root {
+      --bg: #061225; --panel: #0b1c37; --panel2: #102747; --line: rgba(148,183,226,.17);
+      --text: #edf5ff; --muted: #a9bdd8; --blue: #54a7ff; --cyan: #54e0ef;
+      --green: #8ce2bd; --amber: #ffd27a; --shadow: 0 22px 60px rgba(0,0,0,.25);
+      --radius: 20px; --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text); background:
+        radial-gradient(ellipse at 75% 0%, rgba(37,115,210,.18), transparent 38%),
+        radial-gradient(ellipse at 0% 30%, rgba(31,196,218,.08), transparent 30%), var(--bg);
+      font: 16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+    .nav { position: sticky; top: 0; z-index: 10; background: rgba(6,18,37,.82); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
+    .nav-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 750; letter-spacing: -.02em; }
+    .brand-mark { width: 35px; height: 35px; display: grid; place-items: center; border-radius: 11px; color: #041226; font-weight: 900; background: linear-gradient(135deg,var(--cyan),var(--blue)); }
+    .links { display: flex; gap: 23px; color: var(--muted); font-size: 13px; }
+    .links a:hover, .text-link:hover { color: var(--cyan); }
+    .menu-btn { display: none; border: 1px solid var(--line); color: var(--text); background: var(--panel); padding: 8px 12px; border-radius: 10px; }
+    .hero { padding: 92px 0 76px; display: grid; grid-template-columns: 1.35fr .65fr; align-items: center; gap: 52px; }
+    .eyebrow { color: var(--cyan); font-size: 12px; letter-spacing: .17em; text-transform: uppercase; font-weight: 800; }
+    h1 { font-size: clamp(42px,6.3vw,72px); line-height: 1.04; letter-spacing: -.055em; margin: 18px 0; }
+    .gradient { background: linear-gradient(90deg,#eaf5ff 5%,#79c5ff 55%,#65e2e7); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { max-width: 680px; color: var(--muted); font-size: 18px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 12px; padding: 12px 18px; font-weight: 700; font-size: 14px; border: 1px solid var(--line); transition: .2s; }
+    .btn.primary { color: #041226; background: linear-gradient(120deg,var(--cyan),var(--blue)); border: 0; }
+    .btn.secondary { background: rgba(16,39,71,.7); }
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .hero-card { border: 1px solid rgba(104,183,255,.28); background: linear-gradient(150deg,rgba(19,54,94,.88),rgba(8,24,47,.92)); border-radius: 26px; padding: 27px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .hero-card:before { content:""; position:absolute; width:220px;height:220px;right:-90px;top:-100px;border-radius:50%;background:rgba(84,224,239,.12);filter:blur(2px); }
+    .card-label { color: var(--muted); text-transform: uppercase; letter-spacing: .14em; font-size: 10px; font-weight: 800; }
+    .focus-list { display: grid; gap: 13px; margin-top: 19px; }
+    .focus { display:flex; gap:12px; align-items:center; padding: 12px; background:rgba(255,255,255,.035); border:1px solid var(--line); border-radius:13px; }
+    .focus-icon { width:34px;height:34px;display:grid;place-items:center;background:rgba(84,167,255,.14);border-radius:10px;color:var(--cyan);font-weight:800; }
+    .focus strong { display:block;font-size:13px; }
+    .focus small { color:var(--muted);font-size:11px; }
+    .status-note { margin-top: 17px; padding: 12px 14px; border-radius: 12px; background: rgba(255,210,122,.08); border: 1px solid rgba(255,210,122,.2); color: #ffe0a2; font-size: 12px; }
+    section { padding: 66px 0; border-top: 1px solid var(--line); }
+    .section-head { max-width: 700px; margin-bottom: 30px; }
+    h2 { font-size: clamp(28px,4vw,40px); line-height:1.15; letter-spacing:-.04em; margin: 10px 0 12px; }
+    .sub { color: var(--muted); margin: 0; }
+    .grid { display:grid; gap:16px; }
+    .grid.three { grid-template-columns: repeat(3,1fr); }
+    .grid.two { grid-template-columns: repeat(2,1fr); }
+    .tile { padding: 23px; border:1px solid var(--line); border-radius:var(--radius); background:linear-gradient(155deg,rgba(16,39,71,.82),rgba(8,24,47,.82)); }
+    .tile h3 { margin: 10px 0 8px; font-size:18px; }
+    .tile p, .tile li { color:var(--muted); font-size:14px; }
+    .tile ul { padding-left:18px; margin-bottom:0; }
+    .number { color:var(--cyan); font-size:12px; font-weight:850; letter-spacing:.1em; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:15px; }
+    .chip { border:1px solid rgba(84,167,255,.22); background:rgba(84,167,255,.08); color:#cde8ff; border-radius:99px; padding:6px 10px; font-size:11px; }
+    .project { display:flex; flex-direction:column; min-height:235px; }
+    .project .meta { margin-top:auto; padding-top:18px; display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .badge { display:inline-flex; padding:5px 9px; border-radius:99px; font-size:10px; font-weight:800; letter-spacing:.04em; }
+    .learning { color:#b9dfff; background:rgba(84,167,255,.13); border:1px solid rgba(84,167,255,.2); }
+    .planned { color:#ffe0a2; background:rgba(255,210,122,.1); border:1px solid rgba(255,210,122,.2); }
+    .done { color:#a8f0cf; background:rgba(140,226,189,.1); border:1px solid rgba(140,226,189,.2); }
+    .timeline { display:grid; gap:0; }
+    .step { display:grid; grid-template-columns:130px 1fr; gap:20px; padding:19px 0; border-bottom:1px solid var(--line); }
+    .step time { color:var(--cyan); font-size:12px; font-weight:800; }
+    .step p { color:var(--muted); margin:5px 0 0; font-size:14px; }
+    .callout { border:1px solid rgba(84,224,239,.22); background:linear-gradient(110deg,rgba(22,91,121,.2),rgba(16,39,71,.55)); border-radius:var(--radius); padding:25px; }
+    .callout p { color:var(--muted); margin-bottom:0; }
+    .contact-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:20px; }
+    footer { border-top:1px solid var(--line); padding:25px 0 40px; color:var(--muted); font-size:12px; }
+    .smallprint { color:#8fa8c8; font-size:11px; }
+    @media(max-width:850px) { .hero{grid-template-columns:1fr;gap:28px;padding-top:65px}.hero-card{max-width:520px}.grid.three{grid-template-columns:1fr 1fr}.links{gap:13px} }
+    @media(max-width:620px) {
+      .wrap{width:min(100% - 30px,var(--max))}.nav-inner{min-height:64px}.menu-btn{display:block}
+      .links{display:none;position:absolute;top:64px;left:0;right:0;padding:18px 22px;background:#08182f;border-bottom:1px solid var(--line);flex-direction:column}
+      .links.open{display:flex}.grid.three,.grid.two{grid-template-columns:1fr}.hero{padding:58px 0 54px}
+      .lead{font-size:16px}.step{grid-template-columns:1fr;gap:4px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#home"><span class="brand-mark">QA</span><span>TEST ENGINEERING</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">Menu</button>
+      <div class="links" id="navLinks">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#journey">Learning</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="wrap hero" id="home">
+      <div>
+        <div class="eyebrow">Software Quality · Automation · Engineering</div>
+        <h1>Testing with purpose.<br><span class="gradient">Engineering with evidence.</span></h1>
+        <p class="lead">I’m building my capabilities in Full Stack Software Testing, with a focus on Manual Testing, Selenium WebDriver with Java, and Playwright with TypeScript/JavaScript.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://github.com/bbiswaranjan1111/quality-engineering-portfolio" target="_blank" rel="noopener">View GitHub repository <span aria-hidden="true">↗</span></a>
+          <a class="btn secondary" href="#contact">Connect</a>
+        </div>
+        <p class="smallprint" style="margin-top:18px">Early-career testing portfolio · Learning and project status are labelled transparently.</p>
+      </div>
+      <aside class="hero-card">
+        <div class="card-label">Current technical focus</div>
+        <div class="focus-list">
+          <div class="focus"><span class="focus-icon">01</span><div><strong>Manual Testing</strong><small>Test design · execution · defect reporting</small></div></div>
+          <div class="focus"><span class="focus-icon">02</span><div><strong>Selenium + Java</strong><small>WebDriver · locators · automation framework</small></div></div>
+          <div class="focus"><span class="focus-icon">03</span><div><strong>Playwright + TypeScript</strong><small>Browser automation · assertions · debugging</small></div></div>
+        </div>
+        <div class="status-note">Portfolio status: foundational learning and project work are being developed. No unverified project or employment claims are made.</div>
+      </aside>
+    </header>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">01 / About</div><h2>Quality is more than a passing test.</h2><p class="sub">My focus is to understand application behaviour, design meaningful tests, investigate failures, and build maintainable automation.</p></div>
+        <div class="grid two">
+          <article class="tile"><div class="number">MY APPROACH</div><h3>Think beyond the happy path</h3><p>Explore expected and unexpected behaviour, boundary conditions, error handling, data integrity, and user-impacting risks.</p></article>
+          <article class="tile"><div class="number">CAREER DIRECTION</div><h3>Full Stack Software Testing</h3><p>Develop practical capability across manual testing, browser automation, API validation, database checks, and continuous testing workflows.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">02 / Technical focus</div><h2>Skills being developed</h2><p class="sub">These are learning areas, not a claim that every skill is already mastered. Add proficiency levels only after practical assessment.</p></div>
+        <div class="grid three">
+          <article class="tile"><div class="number">01 · TEST DESIGN</div><h3>Manual Testing</h3><p>Build a foundation in test analysis, test design, execution, and defect communication.</p><div class="chips"><span class="chip">STLC / SDLC</span><span class="chip">Test cases</span><span class="chip">Positive & negative</span><span class="chip">Regression</span><span class="chip">Defect lifecycle</span><span class="chip">Agile</span></div></article>
+          <article class="tile"><div class="number">02 · BROWSER AUTOMATION</div><h3>Selenium with Java</h3><p>Learn Java fundamentals and apply them to reliable browser automation.</p><div class="chips"><span class="chip">Java</span><span class="chip">WebDriver</span><span class="chip">Locators</span><span class="chip">Waits</span><span class="chip">TestNG</span><span class="chip">POM</span><span class="chip">Maven</span></div></article>
+          <article class="tile"><div class="number">03 · MODERN AUTOMATION</div><h3>Playwright with TypeScript</h3><p>Develop maintainable end-to-end tests with modern asynchronous programming.</p><div class="chips"><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">Locators</span><span class="chip">Assertions</span><span class="chip">Fixtures</span><span class="chip">Trace Viewer</span><span class="chip">API testing</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">03 / Project showcase</div><h2>Work, documented honestly.</h2><p class="sub">Project cards below are portfolio workstreams, not claims of completed implementations. Update each status and add repository links only when the work exists in GitHub.</p></div>
+        <div class="grid three">
+          <article class="tile project"><div class="number">MANUAL TESTING</div><h3>Test Analysis & Documentation Pack</h3><p>Planned case study: requirement analysis, test scenarios, test cases, test data, execution evidence, and sample defect reports for a sample web application.</p><div class="meta"><span class="badge planned">Planned</span><span class="smallprint">Repository link to be added</span></div></article>
+          <article class="tile project"><div class="number">SELENIUM · JAVA</div><h3>Web UI Automation Framework</h3><p>Planned implementation: WebDriver, explicit waits, Page Object Model, TestNG, Maven, configuration, and execution reporting.</p><div class="meta"><span class="badge planned">Planned</span><span class="smallprint">Repository link to be added</span></div></article>
+          <article class="tile project"><div class="number">PLAYWRIGHT · TYPESCRIPT</div><h3>End-to-End Testing Suite</h3><p>Planned implementation: typed test code, reusable fixtures, robust locators, assertions, traces, HTML reports, and CI execution.</p><div class="meta"><span class="badge planned">Planned</span><span class="smallprint">Repository link to be added</span></div></article>
+          <article class="tile project"><div class="number">API TESTING</div><h3>API Validation Collection</h3><p>Future workstream: validate HTTP methods, status codes, response bodies, schemas, authentication, and negative cases.</p><div class="meta"><span class="badge planned">Planned</span><span class="smallprint">Repository link to be added</span></div></article>
+          <article class="tile project"><div class="number">DATABASE TESTING</div><h3>SQL Data Validation</h3><p>Future workstream: verify stored data, relationships, constraints, and consistency between UI/API behaviour and database records.</p><div class="meta"><span class="badge planned">Planned</span><span class="smallprint">Repository link to be added</span></div></article>
+          <article class="tile project"><div class="number">QUALITY ENGINEERING</div><h3>Continuous Testing Pipeline</h3><p>Future workstream: run automated checks in CI, publish test reports, and make failures easier to investigate.</p><div class="meta"><span class="badge planned">Planned</span><span class="smallprint">Repository link to be added</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">04 / Learning journey</div><h2>Build fundamentals. Then prove them.</h2><p class="sub">A learning roadmap aligned to the current training focus. Progress should be updated as topics are completed and assessed.</p></div>
+        <div class="timeline">
+          <div class="step"><time>FOUNDATIONS</time><div><strong>Manual Testing</strong><p>Testing principles, test design techniques, test execution, defect lifecycle, and Agile testing.</p></div></div>
+          <div class="step"><time>AUTOMATION I</time><div><strong>Java + Selenium</strong><p>Java programming essentials, WebDriver, locators, waits, TestNG, and framework design.</p></div></div>
+          <div class="step"><time>AUTOMATION II</time><div><strong>JavaScript / TypeScript + Playwright</strong><p>Modern language fundamentals, browser automation, fixtures, API checks, debugging, and reporting.</p></div></div>
+          <div class="step"><time>FULL STACK</time><div><strong>API, database, and CI/CD testing</strong><p>Expand coverage beyond the browser and integrate reliable automated checks into delivery pipelines.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="principles">
+      <div class="wrap">
+        <div class="callout">
+          <div class="eyebrow">Portfolio principles</div>
+          <h2>Evidence over labels.</h2>
+          <p>I will list a tool as a skill only when I can explain its purpose, use it in a practical exercise, troubleshoot common failures, and show relevant evidence. Training, personal projects, and professional employment will remain clearly separated.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">05 / Connect</div><h2>Let’s talk about software quality.</h2><p class="sub">For professional conversations, project feedback, and learning collaboration.</p></div>
+        <div class="contact-row">
+          <a class="btn primary" id="githubLink" href="https://github.com/bbiswaranjan1111" target="_blank" rel="noopener">GitHub profile ↗</a>
+          <a class="btn secondary" id="linkedinLink" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn secondary" href="https://github.com/bbiswaranjan1111/quality-engineering-portfolio" target="_blank" rel="noopener">Portfolio source ↗</a>
+        </div>
+        <p class="smallprint" style="margin-top:16px">GitHub profile and portfolio repository links are configured. Add your LinkedIn URL when ready. No email address is published on this page.</p>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap">© <span id="year"></span> · Full Stack Software Testing Portfolio <span style="float:right">Built for clarity, evidence, and continuous learning.</span></div></footer>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('open')));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
